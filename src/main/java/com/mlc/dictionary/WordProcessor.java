@@ -5,14 +5,20 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class WordLocator implements CommandLineRunner {
+public class WordProcessor implements CommandLineRunner {
 
     @Autowired
     private FileReader fileReader;
 
+    @Autowired
+    private CustomDictionary customDictionary;
+
     @Override
     public void run(String... args) throws Exception {
+
         fileReader.readFile();
+
+        customDictionary.search();
     }
 
 }
