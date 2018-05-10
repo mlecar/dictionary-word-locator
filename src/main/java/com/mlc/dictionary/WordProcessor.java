@@ -18,7 +18,7 @@ public class WordProcessor implements CommandLineRunner {
 
         fileReader.readFile();
 
-        customDictionary.search();
+        customDictionary.searchComposedWords();
     }
 
 }
