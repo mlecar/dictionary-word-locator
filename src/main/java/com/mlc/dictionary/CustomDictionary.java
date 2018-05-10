@@ -1,7 +1,9 @@
 package com.mlc.dictionary;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
@@ -60,8 +62,8 @@ public class CustomDictionary {
         return false;
     }
 
-    public void searchComposedWords() {
-        sixLetters.stream().filter(p -> canBeFormedByConcatenation(p)).forEach(word -> System.out.println(word));
+    public List<String> searchComposedWords() {
+        return sixLetters.stream().filter(p -> canBeFormedByConcatenation(p)).collect(Collectors.toList());
     }
 
     /**

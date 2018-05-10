@@ -34,11 +34,26 @@ public class FileReaderTest {
     }
 
     @Test
-    public void findWords() throws IOException {
+    public void wordsComposedBy2Letters() throws IOException {
 
         StringBuilder sb = new StringBuilder();
         sb.append("ab\n");
         sb.append("cdef\n");
+        sb.append("abcdef\n");
+
+        InputStream wordsStream = new ByteArrayInputStream(sb.toString().getBytes());
+        when(resourceLoader.getResource(anyString())).thenReturn(new InputStreamResource(wordsStream));
+        fileReader.readFile();
+
+        assertTrue(customDictionary.checkExistence("abcdef"));
+    }
+
+    @Test
+    public void wordsComposedBy1Letter() throws IOException {
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("a\n");
+        sb.append("bcdef\n");
         sb.append("abcdef\n");
 
         InputStream wordsStream = new ByteArrayInputStream(sb.toString().getBytes());
