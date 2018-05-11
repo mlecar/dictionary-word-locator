@@ -69,8 +69,24 @@ public class CustomDictionary {
     /**
      * Just for test
      */
-    public boolean checkExistence(String word) {
-        return sixLetters.contains(word);
+    public boolean checkExistence(String word, int letterQuantity) {
+
+        switch (letterQuantity) {
+        case 1:
+            return oneLetter.contains(word);
+        case 2:
+            return twoLetters.contains(word);
+        case 3:
+            return threeLetters.contains(word);
+        case 4:
+            return fourLetters.contains(word);
+        case 5:
+            return fiveLetters.contains(word);
+        case 6:
+            return sixLetters.contains(word);
+        default:
+            return false;
+        }
     }
 
 }

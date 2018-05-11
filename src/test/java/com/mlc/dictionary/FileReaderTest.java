@@ -45,7 +45,9 @@ public class FileReaderTest {
         when(resourceLoader.getResource(anyString())).thenReturn(new InputStreamResource(wordsStream));
         fileReader.readFile();
 
-        assertTrue(customDictionary.checkExistence("abcdef"));
+        assertTrue(customDictionary.checkExistence("ab", 2));
+        assertTrue(customDictionary.checkExistence("cdef", 4));
+        assertTrue(customDictionary.checkExistence("abcdef", 6));
     }
 
     @Test
@@ -60,7 +62,9 @@ public class FileReaderTest {
         when(resourceLoader.getResource(anyString())).thenReturn(new InputStreamResource(wordsStream));
         fileReader.readFile();
 
-        assertTrue(customDictionary.checkExistence("abcdef"));
+        assertTrue(customDictionary.checkExistence("a", 1));
+        assertTrue(customDictionary.checkExistence("bcdef", 5));
+        assertTrue(customDictionary.checkExistence("abcdef", 6));
     }
 
 }
